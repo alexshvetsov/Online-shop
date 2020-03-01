@@ -1,0 +1,8 @@
+<div ngClass="cart" *ngIf="this.isCart"> 
+    <p >Cart: </p> 
+    <div ngClass="cart__products" *ngFor="let cartProd of this.cart.cartProducts">
+        <app-cart-product quantity="{{cartProd.quantity}}" 
+        name="{{cartProd.name}}"
+        product="{{cartProd.product}}"
+        price="{{cartProd.price}}"></app-cart-product></div>   
+</div>         

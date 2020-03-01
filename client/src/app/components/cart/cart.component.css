@@ -1,0 +1,15 @@
+.cart{
+    text-align: center;
+}
+
+.cart__products{
+    text-align: center;
+    background-color: rgb(243, 243, 243);
+    margin: 0.5rem;
+}
+
+p{
+    font-size: 3rem;   
+    letter-spacing: .5rem;
+}
+ 

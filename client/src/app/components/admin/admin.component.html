@@ -1,0 +1,3 @@
+<div ngClass="products">
+    <app-product  _id="{{p._id}}" role=1 price={{p.price}} image={{p.image}} name={{p.name}} *ngFor="let p of this.redux.getState().shownProducts"></app-product>   
+</div>   

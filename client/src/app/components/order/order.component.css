@@ -1,0 +1,171 @@
+.main{
+    text-align: center;     
+    width: 100%;
+    height: 100%;
+    position: relative;
+} 
+
+a{ 
+    font-size: 2.6rem; 
+    padding: 1.5rem; 
+}
+
+.adress-form{
+    font-size: 2rem;  
+    padding: 50px;
+    display: inline-block;
+    margin: auto;
+    position: fixed;
+    top:30%; 
+    left: 60%; 
+      transform: translateY(-50%,);
+    transform: translateX(-50%);    
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); 
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}   
+ 
+.adress-form>span {
+  color: red;
+  font-weight: bold;
+  position: absolute;   
+  font-size:1.6rem;   
+  display: inline-block;  
+  width: 35rem;  
+  text-align: left;
+  margin-left: 1rem; 
+  left:1rem;
+}  
+
+.adress-form>.adress-form__select-city-error{
+  top:8rem;
+}
+
+.adress-form>.adress-form__street-input-error{
+  top:14.5rem; 
+} 
+
+.adress-form>.adress-form__houseNumber-input-error{
+  top:21rem;
+}
+
+.adress-form>.adress-form__entrence-input-error{
+  top:27.3rem;
+}
+
+.adress-form>.adress-form__floor-input-error{
+  top:33.8rem;
+} 
+
+.adress-form__button {
+    color: white; 
+    border-radius: 4px;
+    background-color:#ffa125;
+    border: none; 
+    padding:1rem;
+    width: 14rem; 
+    transition: all 0.5s;  
+  } 
+  
+  
+  .adress-form__button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .adress-form__button span:after {
+    content: '»»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .adress-form__button:hover span {
+    padding-right: 25px;
+  }
+  
+  .adress-form__button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  
+  
+
+
+
+
+    
+.cc-form{
+    position: fixed; 
+    top:30%;  
+    left: 63%;    
+    padding: 3.5rem;      
+    background-origin: 1px solid black;
+    transform: translateY(-50%);  
+    transform: translateX(-50%);     
+    font-size: 1.6rem;       
+    margin-top:2rem;
+    -webkit-box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.75); 
+}
+
+.cc-form>span {
+  color: red;
+  font-weight: bold;
+  position: absolute;   
+  font-size:1.6rem;   
+  display: inline-block;  
+  width: 35rem;   
+  text-align: left;
+  margin-left: 1rem; 
+  left:21rem; 
+}   
+
+input:focus{
+    border: 2px solid rgb(151, 238, 151);
+}
+.cc-form__button {
+    color: white;
+    position: relative;
+    background-color: #22ff1b;
+    border: none;
+    padding: 1.4rem; 
+    width:13rem;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+} 
+
+.cc-form__button:hover{
+   background:#fff;
+   box-shadow:0px 2px 10px 5px #97B1BF;
+   color:#000;
+} 
+
+.cc-form__button:after {
+    content: "";
+    background: #f1c40f;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.cc-form__button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+  

@@ -1,0 +1,27 @@
+<div ngClass="aside-component">
+    <div ngClass="aside-component__header">
+        <span ngClass="aside-component__logged-status">Hello {{this.isLogged? user.firstName:'new user'}}</span>
+        <span ngClass="buttons" *ngIf="!isLogged">
+            <a routerLink="/register" routerLinkActive="current-link">Register</a>
+            <a routerLink="/login" routerLinkActive="current-link">Login</a>
+        </span>
+        <span  ngClass="buttons" *ngIf="isLogged">
+            <button (click)="logout()" ngClass="buttons__logout-btn">Logout</button>
+            <!-- <button ngClass=" prev-carts-btn">View previous carts</button> -->
+            <a routerLink="/products" routerLinkActive="current-link">Products</a>
+        </span>
+    </div>
+    <div ngClass="aside-component__main-content">
+        <span  *ngIf="isLogged">
+            <app-cart  *ngIf="!adminArea"></app-cart>
+            <app-new-product *ngIf="adminArea"></app-new-product>
+        </span> 
+        <span *ngIf="!isLogged"> 
+            Please login to start shoping
+        </span>
+    </div>
+    <div ngClass="aside-component__order-area"> 
+        <p *ngIf="isLogged">{{totalCartPrice()}}</p>
+        <a ngClass="{{disableOrder()}} btn btn--white btn--animated"  routerLink="/order">order</a>
+    </div>
+</div> 

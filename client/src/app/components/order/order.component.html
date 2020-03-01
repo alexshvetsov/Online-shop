@@ -1,0 +1,87 @@
+<div ngClass="main">
+    <a routerLink="/products">back to shoping mod</a>
+    <form ngClass="adress-form" *ngIf="!this.procced" #formInfo="ngForm">
+        <span ngClass="adress-form__select-city-error" *ngIf="cityInfo.errors?.required && cityInfo.touched">Please fill
+            the city correctly</span>
+        <select ngClass="adress-form__select-city" required (change)="cityHandler(selectCity.value)" #selectCity
+            name="city" #cityInfo="ngModel" [(ngModel)]="address.city">
+            <option disabled value=undefiend>Choose City</option>
+            <option *ngFor="let c of this.redux.getState().cities" value={{c.eng_name}}>{{c.eng_name.toLowerCase()}}
+            </option>
+        </select>
+
+        <br><br>
+        <span ngClass="adress-form__street-input-error" *ngIf="streetInfo.errors?.required && streetInfo.touched">Please
+            fill the street name correctly</span>
+        <input ngClass="adress-form__street-input" #streetInfo="ngModel" [(ngModel)]="address.street" type="text"
+            name="street" required placeholder="street">
+
+        <br><br>
+        <span ngClass="adress-form__houseNumber-input-error"
+            *ngIf="houseNumberInfo.errors?.required && houseNumberInfo.touched">Please fill the house Number
+            correctly</span>
+        <input ngClass="adress-form__houseNumber-input" #houseNumberInfo="ngModel" [(ngModel)]="address.houseNumber"
+            type="number" name="houseNumber" required placeholder="houseNumber">
+
+        <br><br>
+        <span ngClass="adress-form__entrence-input-error"
+            *ngIf="entranceInfo.errors?.required && entranceInfo.touched">Please fill the entrence Number
+            correctly</span>
+        <input ngClass="adress-form__entrence-input" #entranceInfo="ngModel" [(ngModel)]="address.entrance"
+            type="number" name="entrance" required placeholder="entrance">
+
+        <br><br>
+        <span ngClass="adress-form__floor-input-error" *ngIf="floorInfo.errors?.required && floorInfo.touched">Please
+            fill the floor Number correctly</span>
+        <input ngClass="adress-form__floor-input" #floorInfo="ngModel" [(ngModel)]="address.floor" type="number"
+            name="floor" required placeholder="floor">
+
+        <br><br>
+        <button ngClass="adress-form__button" [disabled]="!formInfo.form.valid "
+            (click)="submitForm()"><span>procced</span></button>
+    </form>
+
+    <div *ngIf="this.procced" class="cc">
+        <form ngClass="cc-form" #formInfo2="ngForm">
+            <span ngClass="cc-form__number-input-error" *ngIf="numberInfo.errors?.required && numberInfo.touched">Credit
+                Card is a required</span>
+            <span ngClass="cc-form__number-input-error" *ngIf="numberInfo?.errors?.pattern && numberInfo.touched">Please
+                Enter a valid credit number</span>
+            <input ngClass="cc-form__number-input" #numberInfo="ngModel" [(ngModel)]="cc.number" type="number"
+                name="number" required placeholder="number" pattern="^\d{12,19}$">
+
+            <br><br>
+            <span ngClass="cc-form__select-error"
+                *ngIf="expirationMonthInfo.errors?.required && expirationMonthInfo.touched">Please fill the exparation
+                month correctly</span>
+            <label ngClass="cc-form__select-label">Exparation month</label>
+            <select ngClass="cc-form__select" (change)="ccMonthHandler(selectMonth.value)" #selectMonth
+                #expirationMonthInfo="ngModel" [(ngModel)]="cc.expiration.month" required name="month">
+                <option *ngFor="let m of months" value={{m}}>{{m}}</option>
+            </select>
+
+            <br><br>
+            <span ngClass="cc-form__select-error"
+                *ngIf="expirationYearInfo.errors?.required && expirationYearInfo.touched">Please fill the year
+                correctly</span>
+            <label ngClass="cc-form__select-label">Exparation year</label>
+            <select ngClass="cc-form__select" (change)="ccYearHandler(selectYear.value)" #selectYear
+                #expirationYearInfo="ngModel" [(ngModel)]="cc.expiration.year" required name="year">
+                <option *ngFor="let y of years" value={{y}}>{{y}}</option>
+            </select>
+
+            <br><br>
+            <span ngClass="cc-form__input-cc-error" *ngIf="ccvInfo.errors?.required && ccvInfo.touched">CCV is a
+                required </span>
+            <span ngClass="cc-form__input-cc-error" *ngIf="ccvInfo?.errors?.pattern && ccvInfo.touched">Please Enter the
+                correct CCV</span>
+            <input ngClass="cc-form__input-cc" #ccvInfo="ngModel" [(ngModel)]="cc.ccv" type="number" pattern="^\d{3}$"
+                name="ccv" required placeholder="ccv">
+
+            <br><br>
+
+            <button ngClass="cc-form__button" [disabled]="!formInfo2.form.valid"
+                (click)="submitForm2()"><span>Order</span></button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+
+    <div ngClass="product">
+            <img src='http://localhost:3000/assets/images/{{this.image}}' alt="FukMe">
+        <p>name: {{this.name}}</p>
+        <p>price: {{this.price}}</p>
+        <input *ngIf="role==0" type="number" [(ngModel)]="quantity">
+        <button *ngIf="role==0" (click)="addToCart()">add</button>
+        <button *ngIf="role==1" (click)="updateProduct(this._id)">Edit</button>
+    </div>
+    

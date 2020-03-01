@@ -1,0 +1,32 @@
+<div ngClass="main">
+    <button (click)="updateProduct()">Add new product</button>
+
+    <form ngClass="form" *ngIf="this.product" #formInfo="ngForm">
+        <span ngClass="form__name-input-error" *ngIf="nameInfo.errors?.required && nameInfo.touched">Please fill the
+            name correctly</span>
+        <input ngClass="form__name-input" #nameInfo="ngModel" [(ngModel)]="product.name" type="text" name="name"
+            required placeholder="name">
+        <br><br>
+
+        <span ngClass="form__name-category-error" *ngIf="prodCategory.errors?.required && prodCategory.touched">Please
+            fill the prodCategory correctly</span>
+        <select required (change)="prodCategoryHandler(prodCategory.value)" #prodCategory name="prodCategory"
+            #prodCategoryInfo="ngModel" [(ngModel)]="product.prodCategory">
+            <option disabled value=undefiend>Choose prodCategory</option>
+            <option *ngFor="let pC of prodCategories" value={{pC._id}}>{{pC.name}}</option>
+        </select>
+        <br><br>
+
+        <span ngClass="form__name-price-error" *ngIf="priceInfo.errors?.required && priceInfo.touched">Please fill the
+            price correctly</span>
+        <input ngClass="form__name-price" #priceInfo="ngModel" [(ngModel)]="product.price" type="number" name="price"
+            required placeholder="price">
+        <br><br>
+
+        <input (change)="setFile($event)" type="file">
+        <br><br>
+
+        <button [disabled]="!formInfo.form.valid " (click)="submitForm()">Edit/Add product</button>
+    </form>
+
+</div>

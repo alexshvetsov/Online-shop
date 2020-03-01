@@ -1,0 +1,19 @@
+<div ngClass="heading">
+    <div ngClass="heading--center">
+        <h1>Shufersalinho </h1>
+        <div *ngIf="user.role>0" ngClass="heading__admin-area">
+            <span>Admin navbar: </span>
+            <a routerLink="/admin" (click)="changeAdminAreaTrue(true)" routerLinkActive="current-link">Admin</a>
+            <a routerLink="/products" (click)="changeAdminAreaFalse(false)" routerLinkActive="current-link">Products</a>
+        </div>
+        <div ngClass="heading__serach">
+            <input [(ngModel)]="searchValue" type="text" required placeholder="search for products" name="searchValue">
+            <button [disabled]="!searchValue" (click)="search()">search</button>
+        </div>
+        <div ngClass="heading__nav">
+            <p ngClass="" (click)="changeShownProducts('all')">All products</p>
+            <p ngClass="" (click)="changeShownProducts(pC._id)" *ngFor="let pC of this.prodCategories">{{pC.name}}
+            </p>
+        </div>
+    </div>
+</div>

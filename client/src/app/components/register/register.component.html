@@ -1,0 +1,49 @@
+<div>
+    <form #formInfo="ngForm" ngClass="form">
+        <input #firstNameInfo="ngModel" ngClass="form__first-name"
+        [(ngModel)]="user.firstName" 
+        required type="text" placeholder="First Name"
+        name="firstName" pattern="^[A-Za-z]{0,70}$"> 
+        <span *ngIf="firstNameInfo.errors?.required && firstNameInfo.touched">First name is required </span>
+        <span *ngIf="firstNameInfo.errors?.pattern && firstNameInfo.touched">Please Enter only A-Z or a-z</span>
+        <br><br>
+        
+        <input #lastNameInfo="ngModel" ngClass="form__last-name"
+        [(ngModel)]="user.lastName" 
+        type="text" required placeholder="Last Name"
+        name="lastName"
+        pattern="^[A-Za-z]{0,70}$" >
+        <span *ngIf="lastNameInfo.errors?.required && lastNameInfo.touched">Last name is required </span>
+        <span *ngIf="lastNameInfo.errors?.pattern && lastNameInfo.touched">Please Enter only A-Z or a-z</span>
+        <br><br>
+        
+        <input #emailInfo="ngModel"  ngClass="form__email"
+        [(ngModel)]="user.email" type="text" 
+        required placeholder="email" name="email"  
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" >
+        <span *ngIf="emailInfo.errors?.required && emailInfo.touched">email is required </span>
+        <span *ngIf="emailInfo.errors?.pattern && emailInfo.touched">Please Enter a valid email address</span>
+        <br><br>
+        
+        <input #passwordInfo="ngModel" ngClass="form__password"
+        [(ngModel)]="user.password" type="password" 
+        required placeholder="password"
+        name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"  >
+        <span *ngIf="passwordInfo.errors?.required && passwordInfo.touched">Password is required </span>
+        <span ngClass="form__password-error" *ngIf="passwordInfo.errors?.pattern && passwordInfo.touched">Please notice password must include big char small char number and speacial char and be at least 8 chars</span>
+        <br><br>   
+         
+        <input #phoneInfo="ngModel"  ngClass="form__phone"
+        [(ngModel)]="user.phone"
+        type="text" required 
+        placeholder="Phone Number"
+        name="phone" pattern="^\d{10}$">
+        <span *ngIf="phoneInfo.errors?.required && phoneInfo.touched">Phone number is required </span>
+        <span *ngIf="phoneInfo.errors?.pattern && phoneInfo.touched">Please Enter 10 digits of your phone Number</span>
+        <br><br>
+         
+        <button [disabled]="!formInfo.form.valid" ngClass="form__button"  
+        (click)="register()">Add User</button>
+    </form> 
+    <span *ngIf="error" ngClass="form__error">{{error}}</span> 
+</div>

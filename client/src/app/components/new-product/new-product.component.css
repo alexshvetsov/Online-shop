@@ -1,0 +1,21 @@
+.main{
+    text-align: center;     
+    width: 100%;
+    height: 100%;
+    position: relative;
+} 
+
+.form{
+    font-size: 1.6rem;  
+    padding: 2rem; 
+    display: inline-block;
+    width: 30rem;    
+    position: fixed;  
+    top:30%; 
+    left: 13%;    
+    transform: translateY(-50%,);
+    transform: translateX(-50%);    
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); 
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+} 

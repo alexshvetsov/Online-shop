@@ -1,0 +1,14 @@
+<div>
+    <form #formInfo="ngForm" ngClass="form">
+        <input ngClass="form_user-input" #emailInfo="ngModel" [(ngModel)]="user.email" type="email" required
+            placeholder="email" name="email">
+        <br><br>
+
+        <input ngClass="form__pass-input" #passwordInfo="ngModel" [(ngModel)]="user.password" type="password"
+            required placeholder="password" name="password">
+        <br><br>
+
+        <button ngClass="form__button" [disabled]="!formInfo.form.valid" (click)="login()">Login</button>
+    </form>
+    <span ngClass="form__alert" *ngIf="error">Password or Username is incorrect</span>
+</div>

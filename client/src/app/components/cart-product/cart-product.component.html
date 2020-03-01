@@ -1,0 +1,8 @@
+<div ngClass="  cart-product">
+    <img *ngIf="this.image" ngClass="cart-product__img" src="http://localhost:3000/assets/images/{{this.image}}" alt="FukMe">
+    <div ngClass="cart-product__product-info"> 
+        <span ngClass="cart-product__name-box">{{name}}</span>
+        <span ngClass="cart-product__quantity-box">Quantity: {{quantity}}</span>
+    </div>
+    <button *ngIf="disableCartArea()" ngClass="cart-product__btn" (click)="delete()">delete</button>
+</div>  
