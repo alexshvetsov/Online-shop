@@ -1,0 +1,22 @@
+online shop project- regular user can add\delete things to cart and order, admin can add and edit products
+
+technologies:
+
+frontend: angular 8, redux 4
+
+backend: express 4, mongoose 5 
+
+
+run project: 1.install node and anguler 
+2. run npm i in the server and client folder 
+3.in server folder run node app and in client folder run ng s --aot -o
+
+
+ regular user:
+ a@a.com
+ As141290!
+
+
+Admin user:
+ alexsh1412@gmail.com
+ As141290!
